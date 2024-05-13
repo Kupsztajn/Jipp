@@ -16,4 +16,5 @@ private:
 
     private slots:
         void DodajPacjentaButton_clicked();
+        void UsunPacjentaButton_clicked();
 };

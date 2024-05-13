@@ -27,6 +27,19 @@
      <string>Dodaj pacjenta</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Button_Usun">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Usun pacjenta</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -69,8 +82,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>Button_Usun</sender>
+   <signal>clicked()</signal>
+   <receiver>PacjenciClass</receiver>
+   <slot>UsunPacjentaButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>212</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>DodajPacjentaButton_clicked()</slot>
+  <slot>UsunPacjentaButton_clicked()</slot>
  </slots>
 </ui>
