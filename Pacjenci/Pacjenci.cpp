@@ -9,6 +9,14 @@ Pacjenci::Pacjenci(QWidget *parent)
 Pacjenci::~Pacjenci()
 {}
 
+void Pacjenci::UsunPacjentaButton_clicked()
+{
+    QMessageBox msgBox;
+    msgBox.setText("Pomyslnie usunieto pacjenta");
+    msgBox.setWindowTitle("Komunikat ");
+    msgBox.exec();
+}
+
 void Pacjenci::DodajPacjentaButton_clicked()
 {
     QMessageBox msgBox;
