@@ -13,4 +13,7 @@ public:
 
 private:
     Ui::PacjenciClass ui;
+
+    private slots:
+        void DodajPacjentaButton_clicked();
 };
