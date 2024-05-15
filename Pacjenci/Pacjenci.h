@@ -13,8 +13,11 @@ public:
 
 private:
     Ui::PacjenciClass ui;
+    int mnSelected = -1;
 
     private slots:
         void DodajPacjentaButton_clicked();
         void UsunPacjentaButton_clicked();
+        void WidgetList_rowChanged(int CurrentRow);
+
 };

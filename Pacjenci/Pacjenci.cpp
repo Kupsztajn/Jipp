@@ -11,8 +11,8 @@ Pacjenci::~Pacjenci()
 
 void Pacjenci::UsunPacjentaButton_clicked()
 {
-    //ui.lista_pacjentow->takeItem(cur);
-
+    QListWidgetItem *it = ui.lista_pacjentow->takeItem(mnSelected);
+    delete it;
     QMessageBox msgBox;
     msgBox.setText("Pomyslnie usunieto pacjenta");
     msgBox.setWindowTitle("Komunikat ");
@@ -30,4 +30,9 @@ void Pacjenci::DodajPacjentaButton_clicked()
     msgBox.setWindowTitle("Komunikat ");
     msgBox.exec();
     ui.lineEdit->clear();
+}
+
+void Pacjenci::WidgetList_rowChanged(int CurrentRow)
+{
+    mnSelected = CurrentRow;
 }
