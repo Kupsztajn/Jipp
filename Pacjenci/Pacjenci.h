@@ -19,5 +19,6 @@ private:
         void DodajPacjentaButton_clicked();
         void UsunPacjentaButton_clicked();
         void WidgetList_rowChanged(int CurrentRow);
+        void item_changed();
 
 };

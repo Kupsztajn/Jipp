@@ -47,3 +47,12 @@ void Pacjenci::WidgetList_rowChanged(int CurrentRow)
 {
     mnSelected = CurrentRow;
 }
+
+void Pacjenci::item_changed()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowIcon(QIcon("plus.ico"));
+    msgBox.setText("Edytowano pacjenta");
+    msgBox.setWindowTitle("Komunikat ");
+    msgBox.exec();
+}
