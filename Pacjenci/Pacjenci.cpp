@@ -4,6 +4,7 @@ Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+    setWindowIcon(QIcon("plus.ico"));
 }
 
 Pacjenci::~Pacjenci()
@@ -16,6 +17,7 @@ void Pacjenci::UsunPacjentaButton_clicked()
 
     //ui.lista_pacjentow->editItem(ui.lista_pacjentow->currentItem());
     QMessageBox msgBox;
+    msgBox.setWindowIcon(QIcon("plus.ico"));
     msgBox.setText("Pomyslnie usunieto pacjenta");
     msgBox.setWindowTitle("Komunikat ");
     msgBox.exec();
@@ -34,6 +36,7 @@ void Pacjenci::DodajPacjentaButton_clicked()
 
     //ui.lista_pacjentow->item
     QMessageBox msgBox;
+    msgBox.setWindowIcon(QIcon("plus.ico"));
     msgBox.setText("Pomyslnie dodano pacjenta");
     msgBox.setWindowTitle("Komunikat ");
     msgBox.exec();
@@ -43,4 +46,13 @@ void Pacjenci::DodajPacjentaButton_clicked()
 void Pacjenci::WidgetList_rowChanged(int CurrentRow)
 {
     mnSelected = CurrentRow;
+}
+
+void Pacjenci::item_changed()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowIcon(QIcon("plus.ico"));
+    msgBox.setText("Edytowano pacjenta");
+    msgBox.setWindowTitle("Komunikat ");
+    msgBox.exec();
 }

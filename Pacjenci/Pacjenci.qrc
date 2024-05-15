@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="Pacjenci">
-    </qresource>
+  <qresource prefix="Pacjenci">
+    <file>plus.ico</file>
+  </qresource>
 </RCC>
