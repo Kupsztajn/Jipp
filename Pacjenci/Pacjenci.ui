@@ -109,8 +109,8 @@
    <slot>UsunPacjentaButton_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>80</x>
-     <y>139</y>
+     <x>150</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
      <x>267</x>
@@ -118,9 +118,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>lista_pacjentow</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>PacjenciClass</receiver>
+   <slot>WidgetList_rowchanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>417</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>311</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>DodajPacjentaButton_clicked()</slot>
   <slot>UsunPacjentaButton_clicked()</slot>
+  <slot>WidgetList_rowchanged()</slot>
  </slots>
 </ui>
