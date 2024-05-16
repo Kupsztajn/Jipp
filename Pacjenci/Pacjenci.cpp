@@ -60,6 +60,16 @@ void Pacjenci::item_changed()
     msgBox.exec();
 }
 
+void Pacjenci::saveToFile_ButtonClicked()
+{
+    saveItemsToFile(ui.lista_pacjentow, "output.txt"); // Zapisz elementy do pliku
+    QMessageBox msgBox;
+    msgBox.setWindowIcon(QIcon("plus.ico"));
+    msgBox.setText("Pomyslnie skopiowano do pliku");
+    msgBox.setWindowTitle("Komunikat");
+    msgBox.exec();
+}
+
 void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName) {
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
