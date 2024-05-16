@@ -20,5 +20,6 @@ private:
         void UsunPacjentaButton_clicked();
         void WidgetList_rowChanged(int CurrentRow);
         void item_changed();
+        void saveItemsToFile(QListWidget* listWidget, const QString& fileName);
 
 };

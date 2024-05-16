@@ -1,5 +1,8 @@
 #include "Pacjenci.h"
 #include <qmessagebox.h>
+#include <QFile>
+#include <QTextStream>
+
 Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -55,4 +58,20 @@ void Pacjenci::item_changed()
     msgBox.setText("Edytowano pacjenta");
     msgBox.setWindowTitle("Komunikat ");
     msgBox.exec();
+}
+
+void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName) {
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return; // Nie uda³o siê otworzyæ pliku, obs³uga b³êdu
+
+    QTextStream out(&file);
+    for (int i = 0; i < listWidget->count(); ++i) {
+        QListWidgetItem* item = listWidget->item(i);
+        if (item) {
+            out << item->text() << "\n"; // Zapisz tekst elementu do pliku
+        }
+    }
+
+    file.close(); // Pamiêtaj o zamkniêciu pliku
 }

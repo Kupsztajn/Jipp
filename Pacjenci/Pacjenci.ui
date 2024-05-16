@@ -69,6 +69,19 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>410</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wyślij dane</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -170,11 +183,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PacjenciClass</receiver>
+   <slot>saveToFile_ButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>453</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>128</x>
+     <y>565</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>DodajPacjentaButton_clicked()</slot>
   <slot>UsunPacjentaButton_clicked()</slot>
   <slot>WidgetList_rowchanged()</slot>
   <slot>item_changed()</slot>
+  <slot>saveToFile_ButtonClicked()</slot>
  </slots>
 </ui>
