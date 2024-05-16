@@ -23,6 +23,6 @@ private:
         void item_changed();
         void saveToFile_ButtonClicked();
         void saveItemsToFile(QListWidget* listWidget, const QString& fileName); // do usuniecia
-        //void saveTableToFile();
+        void saveTableToFile();
 
 };

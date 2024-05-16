@@ -136,7 +136,7 @@ void Pacjenci::saveToFile_ButtonClicked()
     msgBox.exec();
 }
 
-/*
+
 void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName) { // do usuniecia
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -152,7 +152,7 @@ void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName)
 
     file.close(); // Pamiêtaj o zamkniêciu pliku
 }
-*/
+
 void Pacjenci::saveTableToFile() {
     QString fileName = "output.txt";  // Nazwa pliku do zapisu
     QFile file(fileName);
