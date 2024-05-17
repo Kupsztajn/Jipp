@@ -138,23 +138,8 @@ void Pacjenci::saveToFile_ButtonClicked()
 
 
 void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName) { // do usuniecia
-    QFile file(fileName);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-        return; // Nie uda³o siê otworzyæ pliku, obs³uga b³êdu
 
-    QTextStream out(&file);
-    for (int i = 0; i < listWidget->count(); ++i) {
-        QListWidgetItem* item = listWidget->item(i);
-        if (item) {
-            out << item->text() << "\n"; // Zapisz tekst elementu do pliku
-        }
-    }
-
-    file.close(); // Pamiêtaj o zamkniêciu pliku
-}
-
-void Pacjenci::saveTableToFile() {
-    QString fileName = "output.txt";  // Nazwa pliku do zapisu
+      // Nazwa pliku do zapisu
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QMessageBox::warning(this, "B³¹d", "Nie mo¿na otworzyæ pliku do zapisu.");
@@ -174,5 +159,21 @@ void Pacjenci::saveTableToFile() {
     }
 
     file.close();  // Zamknij plik
-    QMessageBox::information(this, "Informacja", "Dane zosta³y zapisane do pliku 'output.txt'.");
+    //QMessageBox::information(this, "Informacja", "Dane zosta³y zapisane do pliku 'output.txt'.");
+
+    /*
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return; // Nie uda³o siê otworzyæ pliku, obs³uga b³êdu
+
+    QTextStream out(&file);
+    for (int i = 0; i < listWidget->count(); ++i) {
+        QListWidgetItem* item = listWidget->item(i);
+        if (item) {
+            out << item->text() << "\n"; // Zapisz tekst elementu do pliku
+        }
+    }
+
+    file.close(); // Pamiêtaj o zamkniêciu pliku
+    */
 }
