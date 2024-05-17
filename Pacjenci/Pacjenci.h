@@ -14,11 +14,15 @@ public:
 private:
     Ui::PacjenciClass ui;
     int mnSelected = -1;
+    bool isAddingNewPatient = false;
 
     private slots:
         void DodajPacjentaButton_clicked();
         void UsunPacjentaButton_clicked();
         void WidgetList_rowChanged(int CurrentRow);
         void item_changed();
+        void saveToFile_ButtonClicked();
+        void saveItemsToFile(QListWidget* listWidget, const QString& fileName); // do usuniecia
+        void saveTableToFile();
 
 };
