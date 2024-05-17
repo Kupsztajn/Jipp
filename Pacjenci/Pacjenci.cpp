@@ -177,3 +177,34 @@ void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName)
     file.close(); // Pamiêtaj o zamkniêciu pliku
     */
 }
+
+void Pacjenci::ReadData_ButtonClicked()
+{
+    isAddingNewPatient = true;
+    QFile file("output.txt");  // Nazwa pliku z którego bêd¹ czytane dane
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "B³¹d", "Nie mo¿na otworzyæ pliku do odczytu.");
+        return;
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList fields = line.split(",");  // Rozdziel liniê na poszczególne elementy
+
+        if (fields.size() == 5) {  // Upewnij siê, ¿e ka¿da linia ma 5 elementów
+            int newRow = ui.tabela_pacjentow->rowCount();
+            ui.tabela_pacjentow->insertRow(newRow);  // Dodaj nowy wiersz
+
+            for (int column = 0; column < fields.size(); ++column) {
+                QTableWidgetItem* newItem = new QTableWidgetItem(fields[column].trimmed());
+                ui.tabela_pacjentow->setItem(newRow, column, newItem);  // Ustaw elementy w odpowiednich kolumnach
+            }
+        }
+    }
+
+    file.close();  // Zamknij plik
+    QMessageBox::information(this, "Informacja", "Dane zosta³y wczytane z pliku.");
+    isAddingNewPatient = false;
+}
+

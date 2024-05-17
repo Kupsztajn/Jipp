@@ -69,7 +69,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="SendDataButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -155,6 +155,19 @@
       <width>113</width>
       <height>24</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ReadDataButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>470</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wczytaj dane</string>
     </property>
    </widget>
   </widget>
@@ -259,7 +272,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>SendDataButton</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
    <slot>saveToFile_ButtonClicked()</slot>
@@ -274,6 +287,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>ReadDataButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PacjenciClass</receiver>
+   <slot>ReadData_ButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>528</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>DodajPacjentaButton_clicked()</slot>
@@ -281,5 +310,6 @@
   <slot>WidgetList_rowchanged()</slot>
   <slot>item_changed()</slot>
   <slot>saveToFile_ButtonClicked()</slot>
+  <slot>ReadData_ButtonClicked()</slot>
  </slots>
 </ui>
