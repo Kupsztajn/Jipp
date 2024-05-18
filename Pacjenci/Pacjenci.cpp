@@ -2,7 +2,7 @@
 #include <qmessagebox.h>
 #include <QFile>
 #include <QTextStream>
-
+#include <QtPatientInput.h>
 Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -31,6 +31,18 @@ void Pacjenci::UsunPacjentaButton_clicked()
 void Pacjenci::DodajPacjentaButton_clicked()
 {
     isAddingNewPatient = true;
+
+    QtPatientInput dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        int row = ui.tabela_pacjentow->rowCount();
+        ui.tabela_pacjentow->insertRow(row);
+        ui.tabela_pacjentow->setItem(row, 0, new QTableWidgetItem(dialog.getName()));
+        ui.tabela_pacjentow->setItem(row, 1, new QTableWidgetItem(dialog.getSurname()));
+        ui.tabela_pacjentow->setItem(row, 2, new QTableWidgetItem(dialog.getAge()));
+        ui.tabela_pacjentow->setItem(row, 3, new QTableWidgetItem(dialog.getPesel()));
+        ui.tabela_pacjentow->setItem(row, 4, new QTableWidgetItem(dialog.getTreatmentCost()));
+    }
+
     /* //Dodawanie do widgetlist
     QString str = ui.lineEdit->text();
     QListWidgetItem* item = new QListWidgetItem(str);
@@ -50,36 +62,36 @@ void Pacjenci::DodajPacjentaButton_clicked()
     ui.lineEdit->clear();
     */
      // Dodawanie do tablewidget
-    QString str = ui.lineEdit->text();
+    QString str = dialog.getName();
     if (str.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono imienia pacjenta!");
+        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono imienia pacjenta lub reszty danych!");
         return;
     }
 
-    QString str1 = ui.lineEdit_2->text();
+    QString str1 = dialog.getSurname();
     if (str1.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono nazwiska pacjenta!");
+        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono nazwiska pacjenta lub reszty danych!");
         return;
     }
 
-    QString str2 = ui.lineEdit_3->text();
+    QString str2 = dialog.getAge();
     if (str2.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono wieku pacjenta!");
+        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono wieku pacjenta lub reszty danych!");
         return;
     }
 
-    QString str3 = ui.lineEdit_4->text();
+    QString str3 = dialog.getPesel();
     if (str3.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono PESELU pacjenta!");
+        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono PESELU pacjenta lub reszty danych!");
         return;
     }
 
-    QString str4 = ui.lineEdit_5->text();
+    QString str4 = dialog.getTreatmentCost();
     if (str4.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono kosztu leczenia pacjenta!");
+        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono kosztu leczenia pacjenta lub reszty danych!");
         return;
     }
-
+    /*
     int row = ui.tabela_pacjentow->rowCount(); // Pobierz aktualn¹ liczbê wierszy
     ui.tabela_pacjentow->insertRow(row); // Dodaj nowy wiersz na koñcu
 
@@ -105,6 +117,7 @@ void Pacjenci::DodajPacjentaButton_clicked()
     msgBox.exec();
 
     ui.lineEdit->clear(); // Wyczyœæ pole tekstowe
+    */
     isAddingNewPatient = false;
 }
 
