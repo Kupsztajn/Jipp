@@ -1,4 +1,1 @@
-A,b,c,d,e
-d,c,d,e,f
-a,b,c,d,e
-A,bc,d,d,d
+Kuba,NAwr,18,12345678901,1000

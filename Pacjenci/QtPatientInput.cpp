@@ -15,11 +15,12 @@ QtPatientInput::QtPatientInput(QWidget* parent) : QDialog(parent) {
 
     QVBoxLayout* mainLayout = new QVBoxLayout(this);
     QFormLayout* formLayout = new QFormLayout();
-    formLayout->addRow("Name", inputName);
-    formLayout->addRow("Surname", inputSurname);
-    formLayout->addRow("Age", inputAge);
-    formLayout->addRow("Pesel", inputPesel);
-    formLayout->addRow("Treatment Cost", inputTreatmentCost);
+    formLayout->addRow(QString::fromUtf8("Imi\u0119"), inputName);
+    formLayout->addRow(tr("Nazwisko"), inputSurname);
+    formLayout->addRow(tr("Wiek"), inputAge);
+    formLayout->addRow(tr("PESEL"), inputPesel);
+    formLayout->addRow(tr("Koszt leczenia"), inputTreatmentCost);
+
     mainLayout->addLayout(formLayout);
 
     QHBoxLayout* buttonLayout = new QHBoxLayout();
