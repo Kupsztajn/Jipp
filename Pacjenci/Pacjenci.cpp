@@ -1,18 +1,53 @@
 #include "Pacjenci.h"
-#include <qmessagebox.h>
+#include <QVBoxLayout>
+#include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
 #include <QtPatientInput.h>
+
 
 Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
     setWindowIcon(QIcon("plus.ico"));
+    //ReadData_ButtonClicked();
+    //ui.tabela_pacjentow->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+
 }
 
+/*
+Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
+    ui.setupUi(this);
+    setWindowIcon(QIcon("plus.ico"));
+
+    // Stwórz centralny widget, który bêdzie trzyma³ layout
+    QWidget* centralWidget = new QWidget(this);
+    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
+
+    // Dodaj tabela_pacjentow do mainLayout
+    mainLayout->addWidget(ui.tabela_pacjentow);
+
+    // Ustaw centralWidget w QMainWindow
+    setCentralWidget(centralWidget);
+
+    // Ustawienie polityki rozmiaru dla tabeli, aby elastycznie skalowa³a siê wraz z oknem
+    ui.tabela_pacjentow->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QHBoxLayout* buttonLayout = new QHBoxLayout;
+    buttonLayout->addWidget(ui.Button_Usun);
+    buttonLayout->addWidget(ui.Button_Dodaj);
+    buttonLayout->addWidget(ui.ReadDataButton);
+    buttonLayout->addWidget(ui.SendDataButton);
+    mainLayout->addLayout(buttonLayout);
+}
+*/
+
 Pacjenci::~Pacjenci()
-{}
+{
+    //saveItemsToFile(ui.tabela_pacjentow, "output.txt");
+}
 
 void Pacjenci::UsunPacjentaButton_clicked()
 {
@@ -21,10 +56,12 @@ void Pacjenci::UsunPacjentaButton_clicked()
     if (currentRow != -1) { // SprawdŸ, czy rzeczywiœcie jakiœ rz¹d jest zaznaczony
         ui.tabela_pacjentow->removeRow(currentRow); // Usuñ zaznaczony rz¹d
 
-        QMessageBox::information(this, "Informacja", "Pomyœlnie usuniêto pacjenta");
+        QMessageBox::information(this, "Informacja", "Pomy\u0347lnie usuni\u0119to pacjenta");
     }
     else {
-        QMessageBox::warning(this, "B³¹d", "Nie zaznaczono ¿adnego pacjenta do usuniêcia");
+        //QMessageBox::warning(this, u8"B³¹d", u8"Nie zaznaczono ¿adnego pacjenta do usuniêcia");
+        QMessageBox::warning(this, "B\u0142\u0105d", QString::fromUtf8("Nie zaznaczono \u017Cadnego pacjenta do usuni\u0119cia"));
+
     }
 }
 
@@ -67,31 +104,31 @@ void Pacjenci::DodajPacjentaButton_clicked()
      // Dodawanie do tablewidget
     QString str = dialog.getName();
     if (str.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono imienia pacjenta lub reszty danych!");
+        QMessageBox::warning(this, "B\u0142\u0105d", "Nie wprowadzono imienia pacjenta lub reszty danych!");
         return;
     }
 
     QString str1 = dialog.getSurname();
     if (str1.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono nazwiska pacjenta lub reszty danych!");
+        QMessageBox::warning(this, "B\u0142\u0105d", "Nie wprowadzono nazwiska pacjenta lub reszty danych!");
         return;
     }
 
     QString str2 = dialog.getAge();
     if (str2.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono wieku pacjenta lub reszty danych!");
+        QMessageBox::warning(this, "B\u0142\u0105d", "Nie wprowadzono wieku pacjenta lub reszty danych!");
         return;
     }
 
     QString str3 = dialog.getPesel();
     if (str3.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono PESELU pacjenta lub reszty danych!");
+        QMessageBox::warning(this, "B\u0142\u0105d", "Nie wprowadzono PESELU pacjenta lub reszty danych!");
         return;
     }
 
     QString str4 = dialog.getTreatmentCost();
     if (str4.isEmpty()) {
-        QMessageBox::warning(this, "B³¹d", "Nie wprowadzono kosztu leczenia pacjenta lub reszty danych!");
+        QMessageBox::warning(this, "B\u0142\u0105d", "Nie wprowadzono kosztu leczenia pacjenta lub reszty danych!");
         return;
     }
     /*
@@ -112,15 +149,13 @@ void Pacjenci::DodajPacjentaButton_clicked()
 
     QTableWidgetItem* newItem4 = new QTableWidgetItem(str4);
     ui.tabela_pacjentow->setItem(row, 4, newItem4);
-
+    */
     QMessageBox msgBox;
     msgBox.setWindowIcon(QIcon("plus.ico"));
-    msgBox.setText("Pomyœlnie dodano pacjenta");
+    msgBox.setText("Pomy\u0347lnie dodano pacjenta"); // !!!!
     msgBox.setWindowTitle("Komunikat");
     msgBox.exec();
-
-    ui.lineEdit->clear(); // Wyczyœæ pole tekstowe
-    */
+    
     isAddingNewPatient = false;
 }
 
@@ -220,7 +255,7 @@ void Pacjenci::ReadData_ButtonClicked()
     }
 
     file.close();  // Zamknij plik
-    QMessageBox::information(this, "Informacja", "Dane zosta³y wczytane z pliku.");
+    QMessageBox::information(this, "Informacja", "Dane zosta\u0142y wczytane z pliku.");
     isAddingNewPatient = false;
 }
 
