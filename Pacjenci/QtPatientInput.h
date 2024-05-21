@@ -28,7 +28,7 @@ private:
     QLineEdit* inputAge;
     QLineEdit* inputPesel;
     QLineEdit* inputTreatmentCost;
-    QCheckBox *insuranceCheckBox; 
+    QCheckBox* insuranceCheckBox; 
     QComboBox* treatmentStatusComboBox;
 
     QPushButton* acceptButton;

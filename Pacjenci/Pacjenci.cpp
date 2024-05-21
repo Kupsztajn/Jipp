@@ -153,7 +153,7 @@ void Pacjenci::saveToFile_ButtonClicked()
 }
 
 
-void Pacjenci::saveItemsToFile(QTableWidget* listWidget, const QString& fileName) { // do usuniecia
+void Pacjenci::saveItemsToFile(QTableWidget* listWidget, const QString& fileName) {
 
       // Nazwa pliku do zapisu
     QFile file(fileName);
@@ -175,7 +175,7 @@ void Pacjenci::saveItemsToFile(QTableWidget* listWidget, const QString& fileName
     }
 
     file.close();  // Zamknij plik
-    QMessageBox::information(this, "Informacja", "Dane zosta³y zapisane do pliku 'output.txt'.");
+    //QMessageBox::information(this, "Informacja", "Dane zosta³y zapisane do pliku 'output.txt'.");
 
     /*
     QFile file(fileName);
