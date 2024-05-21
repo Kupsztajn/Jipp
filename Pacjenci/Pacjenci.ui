@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>987</width>
+    <width>1008</width>
     <height>600</height>
    </rect>
   </property>
@@ -64,7 +64,7 @@
      <rect>
       <x>220</x>
       <y>20</y>
-      <width>711</width>
+      <width>761</width>
       <height>241</height>
      </rect>
     </property>
@@ -102,6 +102,11 @@
      <property name="text">
       <string>Stan leczenia</string>
      </property>
+     <property name="font">
+      <font>
+       <hintingpreference>PreferDefaultHinting</hintingpreference>
+      </font>
+     </property>
     </column>
    </widget>
    <widget class="QPushButton" name="ReadDataButton">
@@ -123,7 +128,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>987</width>
+     <width>1008</width>
      <height>21</height>
     </rect>
    </property>
