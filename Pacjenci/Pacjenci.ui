@@ -46,19 +46,6 @@
      <string>Usun pacjenta</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="lista_pacjentow">
-    <property name="geometry">
-     <rect>
-      <x>790</x>
-      <y>20</y>
-      <width>181</width>
-      <height>361</height>
-     </rect>
-    </property>
-    <property name="editTriggers">
-     <set>QAbstractItemView::EditTrigger::DoubleClicked|QAbstractItemView::EditTrigger::EditKeyPressed</set>
-    </property>
-   </widget>
    <widget class="QPushButton" name="SendDataButton">
     <property name="geometry">
      <rect>
@@ -77,7 +64,7 @@
      <rect>
       <x>220</x>
       <y>20</y>
-      <width>511</width>
+      <width>691</width>
       <height>241</height>
      </rect>
     </property>
@@ -104,6 +91,16 @@
     <column>
      <property name="text">
       <string>Koszt leczenia</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Czy ubezpieczony</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Stan leczenia</string>
      </property>
     </column>
    </widget>
@@ -186,22 +183,6 @@
     <hint type="destinationlabel">
      <x>529</x>
      <y>563</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lista_pacjentow</sender>
-   <signal>currentRowChanged(int)</signal>
-   <receiver>PacjenciClass</receiver>
-   <slot>WidgetList_rowchanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>958</x>
-     <y>354</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>809</x>
-     <y>417</y>
     </hint>
    </hints>
   </connection>

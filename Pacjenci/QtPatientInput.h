@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QCheckBox>
+#include <QComboBox>
 
 class QtPatientInput : public QDialog {
     Q_OBJECT
@@ -16,6 +18,9 @@ public:
     QString getAge() const;
     QString getPesel() const;
     QString getTreatmentCost() const;
+    bool isInsured() const;
+    QString getTreatmentStatus() const;
+
 
 private:
     QLineEdit* inputName;
@@ -23,6 +28,8 @@ private:
     QLineEdit* inputAge;
     QLineEdit* inputPesel;
     QLineEdit* inputTreatmentCost;
+    QCheckBox *insuranceCheckBox; 
+    QComboBox* treatmentStatusComboBox;
 
     QPushButton* acceptButton;
     QPushButton* cancelButton;

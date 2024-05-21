@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QtPatientInput.h>
+
 Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -41,6 +42,8 @@ void Pacjenci::DodajPacjentaButton_clicked()
         ui.tabela_pacjentow->setItem(row, 2, new QTableWidgetItem(dialog.getAge()));
         ui.tabela_pacjentow->setItem(row, 3, new QTableWidgetItem(dialog.getPesel()));
         ui.tabela_pacjentow->setItem(row, 4, new QTableWidgetItem(dialog.getTreatmentCost()));
+        ui.tabela_pacjentow->setItem(row, 5, new QTableWidgetItem(dialog.isInsured() ? "Tak" : "Nie"));
+        ui.tabela_pacjentow->setItem(row, 6, new QTableWidgetItem(dialog.getTreatmentStatus()));
     }
 
     /* //Dodawanie do widgetlist
@@ -141,7 +144,7 @@ void Pacjenci::item_changed()
 
 void Pacjenci::saveToFile_ButtonClicked()
 {
-    saveItemsToFile(ui.lista_pacjentow, "output.txt"); // Zapisz elementy do pliku
+    saveItemsToFile(ui.tabela_pacjentow, "output.txt"); // Zapisz elementy do pliku
     QMessageBox msgBox;
     msgBox.setWindowIcon(QIcon("plus.ico"));
     msgBox.setText("Pomyslnie skopiowano do pliku");
@@ -150,7 +153,7 @@ void Pacjenci::saveToFile_ButtonClicked()
 }
 
 
-void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName) { // do usuniecia
+void Pacjenci::saveItemsToFile(QTableWidget* listWidget, const QString& fileName) { // do usuniecia
 
       // Nazwa pliku do zapisu
     QFile file(fileName);
@@ -172,7 +175,7 @@ void Pacjenci::saveItemsToFile(QListWidget* listWidget, const QString& fileName)
     }
 
     file.close();  // Zamknij plik
-    //QMessageBox::information(this, "Informacja", "Dane zosta³y zapisane do pliku 'output.txt'.");
+    QMessageBox::information(this, "Informacja", "Dane zosta³y zapisane do pliku 'output.txt'.");
 
     /*
     QFile file(fileName);
@@ -205,7 +208,7 @@ void Pacjenci::ReadData_ButtonClicked()
         QString line = in.readLine();
         QStringList fields = line.split(",");  // Rozdziel liniê na poszczególne elementy
 
-        if (fields.size() == 5) {  // Upewnij siê, ¿e ka¿da linia ma 5 elementów
+        if (fields.size() == ui.tabela_pacjentow->columnCount()) {  // Upewnij siê, ¿e ka¿da linia ma 5 elementów
             int newRow = ui.tabela_pacjentow->rowCount();
             ui.tabela_pacjentow->insertRow(newRow);  // Dodaj nowy wiersz
 

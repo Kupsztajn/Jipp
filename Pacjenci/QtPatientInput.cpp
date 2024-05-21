@@ -9,6 +9,9 @@ QtPatientInput::QtPatientInput(QWidget* parent) : QDialog(parent) {
     inputAge = new QLineEdit(this);
     inputPesel = new QLineEdit(this);
     inputTreatmentCost = new QLineEdit(this);
+    insuranceCheckBox = new QCheckBox("Czy ubezpieczony", this);
+    treatmentStatusComboBox = new QComboBox(this);
+    treatmentStatusComboBox->addItems({ "Wyleczony", "W trakcie", "Niepowodzenie" });
 
     acceptButton = new QPushButton("Accept", this);
     cancelButton = new QPushButton("Cancel", this);
@@ -20,6 +23,9 @@ QtPatientInput::QtPatientInput(QWidget* parent) : QDialog(parent) {
     formLayout->addRow(tr("Wiek"), inputAge);
     formLayout->addRow(tr("PESEL"), inputPesel);
     formLayout->addRow(tr("Koszt leczenia"), inputTreatmentCost);
+    formLayout->addRow("Czy ubezpieczony? \t", insuranceCheckBox);
+    formLayout->addRow("Stan leczenia", treatmentStatusComboBox);
+
 
     mainLayout->addLayout(formLayout);
 
@@ -39,3 +45,5 @@ QString QtPatientInput::getSurname() const { return inputSurname->text(); }
 QString QtPatientInput::getAge() const { return inputAge->text(); }
 QString QtPatientInput::getPesel() const { return inputPesel->text(); }
 QString QtPatientInput::getTreatmentCost() const { return inputTreatmentCost->text(); }
+bool QtPatientInput::isInsured() const { return insuranceCheckBox->isChecked(); }
+QString QtPatientInput::getTreatmentStatus() const { return treatmentStatusComboBox->currentText(); }
