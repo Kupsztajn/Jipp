@@ -11,7 +11,7 @@ Pacjenci::Pacjenci(QWidget *parent)
 {
     ui.setupUi(this);
     setWindowIcon(QIcon("plus.ico"));
-
+    //ReadData_ButtonClicked();
     //ui.tabela_pacjentow->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
 
@@ -45,7 +45,9 @@ Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
 */
 
 Pacjenci::~Pacjenci()
-{}
+{
+    //saveItemsToFile(ui.tabela_pacjentow, "output.txt");
+}
 
 void Pacjenci::UsunPacjentaButton_clicked()
 {
@@ -147,15 +149,13 @@ void Pacjenci::DodajPacjentaButton_clicked()
 
     QTableWidgetItem* newItem4 = new QTableWidgetItem(str4);
     ui.tabela_pacjentow->setItem(row, 4, newItem4);
-
+    */
     QMessageBox msgBox;
     msgBox.setWindowIcon(QIcon("plus.ico"));
-    msgBox.setText("Pomyœlnie dodano pacjenta");
+    msgBox.setText("Pomy\u0347lnie dodano pacjenta"); // !!!!
     msgBox.setWindowTitle("Komunikat");
     msgBox.exec();
-
-    ui.lineEdit->clear(); // Wyczyœæ pole tekstowe
-    */
+    
     isAddingNewPatient = false;
 }
 

@@ -1,1 +1,4 @@
-asdasd,,,,,Nie,Wyleczony
+asdas,asdasd,asdasd,asd,123412,Tak,W trakcie leczenia
+asdasd,asdasd,asdasd,asdasd,asdasd,Tak,Niepowodzenie
+asdas,asdasd,asdasd,asd,123412,Tak,W trakcie leczenia
+asdasd,asdasd,asdasd,asdasd,asdasd,Tak,Niepowodzenie
