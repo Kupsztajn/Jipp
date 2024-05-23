@@ -126,6 +126,56 @@ void Pacjenci::DodajPacjentaButton_clicked()
         return;
     }
 
+    if (str3.length() != 11) {
+        QMessageBox::warning(this, "B³¹d", "PESEL musi zawieraæ dok³adnie 11 cyfr!");
+        return;
+    }
+
+    bool allDigits = true;
+    for (QChar c : str3) {
+        if (!c.isDigit()) {
+            allDigits = false;
+            break;
+        }
+    }
+
+    if (!allDigits) {
+        QMessageBox::warning(this, "B³¹d", "PESEL musi zawieraæ wy³¹cznie cyfry!");
+        return;
+    }
+
+    // Sprawdzenie poprawnoœci miesi¹ca
+    int month = str3.mid(2, 2).toInt();
+    if (!((month >= 1 && month <= 12) || (month >= 21 && month <= 32))) {
+        QMessageBox::warning(this, "B³¹d", "Miesi¹c w PESEL-u musi mieœciæ siê w przedziale 01-12 lub 21-32!");
+        return;
+    }
+
+    // Sprawdzenie poprawnoœci dnia
+    int day = str3.mid(4, 2).toInt();
+    if (day < 1 || day > 31) {
+        QMessageBox::warning(this, "B³¹d", "Dzieñ w PESEL-u musi mieœciæ siê w przedziale 01-31!");
+        return;
+    }
+
+    // Obliczenie cyfry kontrolnej
+    QList<int> weights = { 1, 3, 7, 9, 1, 3, 7, 9, 1, 3 };
+    int sum = 0;
+
+    for (int i = 0; i < 10; ++i) {
+        int digit = str3[i].digitValue();
+        sum += (digit * weights[i]) % 10;
+    }
+
+    int calculatedControlDigit = (10 - (sum % 10)) % 10;
+    int actualControlDigit = str3[10].digitValue();
+
+    if (calculatedControlDigit != actualControlDigit) {
+        QMessageBox::warning(this, "B³¹d", "Cyfra kontrolna PESELU jest niepoprawna!");
+        return;
+    }
+
+
     QString str4 = dialog.getTreatmentCost();
     if (str4.isEmpty()) {
         QMessageBox::warning(this, "B\u0142\u0105d", "Nie wprowadzono kosztu leczenia pacjenta lub reszty danych!");
