@@ -1,10 +1,16 @@
 #include "Pacjenci.h"
+#include "Login.h"
 #include <QtWidgets/QApplication>
-int main(int argc, char *argv[])
+
+int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
-    Pacjenci w;
-    //w.setWindowState(Qt::WindowMaximized);
-    w.show();
-    return a.exec();
+
+    Login login;
+    if (login.exec() == QDialog::Accepted) {
+        Pacjenci w;
+        w.show();
+        return a.exec();
+    }
+    return 0;
 }

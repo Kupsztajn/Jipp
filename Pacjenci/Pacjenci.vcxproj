@@ -92,6 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Login.cpp" />
     <ClCompile Include="QtPatientInput.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
@@ -99,6 +100,7 @@
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
     <QtRcc Include="Pacjenci.qrc" />
+    <QtUic Include="Login.ui" />
     <QtUic Include="Pacjenci.ui" />
     <QtMoc Include="Pacjenci.h" />
     <ClCompile Include="Pacjenci.cpp" />
@@ -106,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtPatientInput.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Login.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
