@@ -16,6 +16,9 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
+  <property name="styleSheet">
+   <string notr="true">border-image: url(:/Pacjenci/tlo.png);</string>
+  </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
   </property>
@@ -28,6 +31,9 @@
       <width>191</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: none;</string>
     </property>
     <property name="text">
      <string>Dodaj pacjenta</string>
@@ -42,6 +48,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: none;</string>
+    </property>
     <property name="text">
      <string>Usun pacjenta</string>
     </property>
@@ -55,6 +64,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: none;</string>
+    </property>
     <property name="text">
      <string>Wyślij dane</string>
     </property>
@@ -67,6 +79,9 @@
       <width>761</width>
       <height>241</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: none;</string>
     </property>
     <column>
      <property name="text">
@@ -118,6 +133,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: none;</string>
+    </property>
     <property name="text">
      <string>Wczytaj dane</string>
     </property>
@@ -132,40 +150,12 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/Pacjenci/logo.png);</string>
+     <string notr="true">image: url(:/Pacjenci/logo.png);
+border-image: none;</string>
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1008</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QToolBar" name="toolBar">
-   <property name="windowTitle">
-    <string>toolBar</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

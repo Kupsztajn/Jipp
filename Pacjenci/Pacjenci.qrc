@@ -1,6 +1,7 @@
 <RCC>
-    <qresource prefix="/Pacjenci">
-        <file>plus.ico</file>
-        <file>logo.png</file>
-    </qresource>
+  <qresource prefix="Pacjenci">
+    <file>plus.ico</file>
+    <file>logo.png</file>
+    <file>tlo.png</file>
+  </qresource>
 </RCC>
