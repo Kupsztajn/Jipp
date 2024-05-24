@@ -16,10 +16,10 @@
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>80</y>
-     <width>151</width>
-     <height>101</height>
+     <x>210</x>
+     <y>50</y>
+     <width>191</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -119,6 +119,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Pacjenci.qrc"/>
+ </resources>
  <connections/>
 </ui>
