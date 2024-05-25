@@ -17,7 +17,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">border-image: url(:/Pacjenci/tlo.png);</string>
+   <string notr="true">background-image: url(:/Pacjenci/tlo.png);</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
@@ -33,7 +33,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: none;</string>
+     <string notr="true">background-image: none;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Dodaj pacjenta</string>
@@ -49,7 +50,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: none;</string>
+     <string notr="true">background-image: none;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Usun pacjenta</string>
@@ -65,7 +67,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: none;</string>
+     <string notr="true">background-image: none;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Wyślij dane</string>
@@ -81,7 +84,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: none;</string>
+     <string notr="true">background-image: none;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
     </property>
     <column>
      <property name="text">
@@ -134,7 +139,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: none;</string>
+     <string notr="true">background-image: none;
+background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Wczytaj dane</string>
