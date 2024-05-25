@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Login</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">border-image: url(:/Pacjenci/tlo.png);</string>
+  </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
@@ -23,7 +26,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/Pacjenci/logo.png);</string>
+    <string notr="true">image: url(:/Pacjenci/logo.png);
+border-image: none;</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox">
@@ -34,6 +38,11 @@
      <width>341</width>
      <height>181</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: none;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
    </property>
    <property name="title">
     <string>Logowanie</string>
@@ -46,6 +55,10 @@
       <width>91</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+</string>
     </property>
     <property name="text">
      <string>Podaj login</string>
@@ -60,6 +73,10 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+</string>
+    </property>
     <property name="text">
      <string>Podaj hasło</string>
     </property>
@@ -73,6 +90,10 @@
       <height>24</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;
+color: none;</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_password">
     <property name="geometry">
@@ -82,6 +103,10 @@
       <width>161</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;
+color: none;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_login">
@@ -94,7 +119,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 9pt &quot;Comic Sans MS&quot;;</string>
+     <string notr="true">font: 9pt &quot;Comic Sans MS&quot;;
+background-color: none;
+color: none;</string>
     </property>
     <property name="text">
      <string>zaloguj</string>
@@ -110,7 +137,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 9pt &quot;Comic Sans MS&quot;;</string>
+     <string notr="true">font: 9pt &quot;Comic Sans MS&quot;;
+background-color: none;
+color: none;</string>
     </property>
     <property name="text">
      <string>anuluj</string>
