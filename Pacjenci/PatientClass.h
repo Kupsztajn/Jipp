@@ -16,6 +16,14 @@ public:
     bool isInsured() const;
     QString getTreatmentStatus() const;
 
+    void setName(const QString& name);
+    void setSurname(const QString& surname);
+    void setAge(int age);
+    void setPesel(const QString& pesel);
+    void setTreatmentCost(const QString& cost);
+    void setInsured(bool insured);
+    void setTreatmentStatus(const QString& status);
+
 private:
     QString name;
     QString surname;

@@ -4,7 +4,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QtPatientInput.h>
-
+#include <PatientClass.h>
 
 Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
@@ -49,19 +49,23 @@ Pacjenci::~Pacjenci()
     //saveItemsToFile(ui.tabela_pacjentow, "output.txt");
 }
 
-void Pacjenci::UsunPacjentaButton_clicked()
+void Pacjenci::UsunPacjentaButton_clicked() 
 {
     int currentRow = ui.tabela_pacjentow->currentRow(); // Pobierz indeks aktualnie zaznaczonego rzêdu
 
     if (currentRow != -1) { // SprawdŸ, czy rzeczywiœcie jakiœ rz¹d jest zaznaczony
-        ui.tabela_pacjentow->removeRow(currentRow); // Usuñ zaznaczony rz¹d
+        // Usuñ zaznaczony rz¹d z tabeli
+        ui.tabela_pacjentow->removeRow(currentRow);
 
-        QMessageBox::information(this, "Informacja", "Pomy\u0347lnie usuni\u0119to pacjenta");
+        // Usuñ odpowiadaj¹cy mu obiekt pacjenta z wektora
+        if (currentRow < patients.size()) { // Dodatkowe zabezpieczenie
+            patients.removeAt(currentRow);
+        }
+
+        QMessageBox::information(this, tr("Informacja"), tr("Pomyœlnie usuniêto pacjenta"));
     }
     else {
-        //QMessageBox::warning(this, u8"B³¹d", u8"Nie zaznaczono ¿adnego pacjenta do usuniêcia");
-        QMessageBox::warning(this, "B\u0142\u0105d", QString::fromUtf8("Nie zaznaczono \u017Cadnego pacjenta do usuni\u0119cia"));
-
+        QMessageBox::warning(this, tr("B³¹d"), tr("Nie zaznaczono ¿adnego pacjenta do usuniêcia"));
     }
 }
 
@@ -72,6 +76,20 @@ void Pacjenci::DodajPacjentaButton_clicked()
 
     QtPatientInput dialog(this);
     if (dialog.exec() == QDialog::Accepted) {
+
+        PatientClass newPatient(
+            dialog.getName(),
+            dialog.getSurname(),
+            dialog.getAge().toInt(),
+            dialog.getPesel(),
+            dialog.getTreatmentCost(),
+            dialog.isInsured(),
+            dialog.getTreatmentStatus()
+        );
+
+        // Dodanie pacjenta do wektora
+        patients.append(newPatient);
+
         int row = ui.tabela_pacjentow->rowCount();
         ui.tabela_pacjentow->insertRow(row);
         ui.tabela_pacjentow->setItem(row, 0, new QTableWidgetItem(dialog.getName()));
@@ -82,7 +100,9 @@ void Pacjenci::DodajPacjentaButton_clicked()
         ui.tabela_pacjentow->setItem(row, 5, new QTableWidgetItem(dialog.isInsured() ? "Tak" : "Nie"));
         ui.tabela_pacjentow->setItem(row, 6, new QTableWidgetItem(dialog.getTreatmentStatus()));
     }
+
     isAddingNewPatient = false;
+
     /* //Dodawanie do widgetlist
     QString str = ui.lineEdit->text();
     QListWidgetItem* item = new QListWidgetItem(str);
@@ -215,18 +235,58 @@ void Pacjenci::WidgetList_rowChanged(int CurrentRow)
     mnSelected = CurrentRow;
 }
 
-void Pacjenci::item_changed()
-{
+void Pacjenci::item_changed() {
     if (isAddingNewPatient) {
         return; // Jeœli jesteœmy w trakcie dodawania pacjenta, nie robimy nic
     }
 
-    QMessageBox msgBox;
-    msgBox.setWindowIcon(QIcon("plus.ico"));
-    msgBox.setText("Edytowano pacjenta");
-    msgBox.setWindowTitle("Komunikat ");
-    msgBox.exec();
+    QTableWidgetItem* item = ui.tabela_pacjentow->currentItem();
+    if (!item) return; // Jeœli nie ma zaznaczonego elementu, nic nie rób
+
+    int row = item->row();
+    int column = item->column();
+
+    if (row >= 0 && row < patients.size()) {
+        PatientClass& patient = patients[row];
+
+        // Zaktualizuj obiekt pacjenta na podstawie zmodyfikowanej komórki
+        switch (column) {
+        case 0: // Imiê
+            patient.setName(item->text());
+            break;
+        case 1: // Nazwisko
+            patient.setSurname(item->text());
+            break;
+        case 2: // Wiek
+            patient.setAge(item->text().toInt());
+            break;
+        case 3: // PESEL
+            patient.setPesel(item->text());
+            break;
+        case 4: // Koszt leczenia
+            patient.setTreatmentCost(item->text());
+            break;
+        case 5: // Ubezpieczony
+            patient.setInsured(item->text() == "Tak");
+            break;
+        case 6: // Status leczenia
+            patient.setTreatmentStatus(item->text());
+            break;
+        }
+
+        QMessageBox msgBox;
+        msgBox.setWindowIcon(QIcon("plus.ico"));
+        msgBox.setText("Edytowano pacjenta");
+        msgBox.setWindowTitle("Komunikat ");
+        msgBox.exec();
+    }
+    else {
+        // Obs³uga b³êdu - wiersz poza zakresem
+        QMessageBox::warning(this, "B³¹d", "Niepoprawne dane pacjenta.");
+    }
 }
+
+
 
 void Pacjenci::saveToFile_ButtonClicked()
 {
