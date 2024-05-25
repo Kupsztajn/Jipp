@@ -82,7 +82,7 @@ void Pacjenci::DodajPacjentaButton_clicked()
         ui.tabela_pacjentow->setItem(row, 5, new QTableWidgetItem(dialog.isInsured() ? "Tak" : "Nie"));
         ui.tabela_pacjentow->setItem(row, 6, new QTableWidgetItem(dialog.getTreatmentStatus()));
     }
-
+    isAddingNewPatient = false;
     /* //Dodawanie do widgetlist
     QString str = ui.lineEdit->text();
     QListWidgetItem* item = new QListWidgetItem(str);
@@ -310,3 +310,29 @@ void Pacjenci::ReadData_ButtonClicked()
     isAddingNewPatient = false;
 }
 
+void Pacjenci::addPatient(const PatientClass& newPatient) {
+    patients.append(newPatient);
+    updateTableWidget();
+}
+
+void Pacjenci::removePatient(int index) {
+    if (index >= 0 && index < patients.size()) {
+        patients.removeAt(index);
+        updateTableWidget();
+    }
+}
+
+void Pacjenci::updateTableWidget() {
+    ui.tabela_pacjentow->clear();
+    for (const auto& patient : patients) {
+        int row = ui.tabela_pacjentow->rowCount();
+        ui.tabela_pacjentow->insertRow(row);
+        ui.tabela_pacjentow->setItem(row, 0, new QTableWidgetItem(patient.getName()));
+        ui.tabela_pacjentow->setItem(row, 1, new QTableWidgetItem(patient.getSurname()));
+        ui.tabela_pacjentow->setItem(row, 2, new QTableWidgetItem(patient.getAge()));
+        ui.tabela_pacjentow->setItem(row, 3, new QTableWidgetItem(patient.getPesel()));
+        ui.tabela_pacjentow->setItem(row, 4, new QTableWidgetItem(patient.getTreatmentCost()));
+        ui.tabela_pacjentow->setItem(row, 5, new QTableWidgetItem(patient.isInsured() ? "Tak" : "Nie"));
+        ui.tabela_pacjentow->setItem(row, 6, new QTableWidgetItem(patient.getTreatmentStatus()));
+    }
+}
