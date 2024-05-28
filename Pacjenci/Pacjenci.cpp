@@ -53,7 +53,7 @@ Pacjenci::~Pacjenci()
     //saveItemsToFile(ui.patientTable, "output.txt");
 }
 
-void Pacjenci::UsunPacjentaButton_clicked()
+void Pacjenci::DeletePatientButtonClicked()
 {
     int currentRow = ui.patientTable->currentRow(); // Pobierz indeks aktualnie zaznaczonego rzêdu
 
@@ -74,7 +74,7 @@ void Pacjenci::UsunPacjentaButton_clicked()
 }
 
 
-void Pacjenci::DodajPacjentaButton_clicked()
+void Pacjenci::AddPatientButtonClicked()
 {
     isAddingNewPatient = true;
 
@@ -240,7 +240,8 @@ void Pacjenci::WidgetList_rowChanged(int CurrentRow)
     mnSelected = CurrentRow;
 }
 
-void Pacjenci::item_changed() {
+void Pacjenci::ItemChanged() 
+{
     if (isAddingNewPatient) {
         return; // Jeœli jesteœmy w trakcie dodawania pacjenta, nie robimy nic
     }
@@ -290,7 +291,7 @@ void Pacjenci::item_changed() {
 
 
 
-void Pacjenci::saveToFile_ButtonClicked()
+void Pacjenci::SaveToFileButtonClicked()
 {
     saveItemsToFile(ui.patientTable, "output.txt"); // Zapisz elementy do pliku
 
@@ -346,7 +347,7 @@ void Pacjenci::saveItemsToFile(QTableWidget* listWidget, const QString& fileName
     */
 }
 
-void Pacjenci::ReadData_ButtonClicked()
+void Pacjenci::ReadDataButtonClicked()
 {
     isAddingNewPatient = true;
     QFile file("output.txt");  // Nazwa pliku z którego bêd¹ czytane dane
