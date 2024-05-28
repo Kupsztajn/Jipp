@@ -220,18 +220,13 @@ void Pacjenci::ItemChanged()
         QMessageBox::information(this, "Komunikat", "Edytowano pacjenta");
 
     }
-    /*
-    else {
-        QMessageBox::warning(this, "B\u0142\u0105d", "Niepoprawne dane pacjenta.");
-    }
-    */
 }
 
 
 
 void Pacjenci::SaveToFileButtonClicked()
 {
-    SaveItemsToFile(ui.patientTable, "output.txt"); // Zapisz elementy do pliku
+    SaveItemsToFile(ui.patientTable, "output.txt");
 
     QMessageBox::information(this, "Komunikat", "Pomyslnie skopiowano do pliku");
 }
