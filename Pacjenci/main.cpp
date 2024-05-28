@@ -27,5 +27,9 @@ int main(int argc, char* argv[])
         w.show();
         return a.exec();
     }
+
+    Pacjenci w;
+    w.show();
+    return a.exec();
     return 0;
 }

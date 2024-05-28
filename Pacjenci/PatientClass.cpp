@@ -1,4 +1,3 @@
-// PatientClass.cpp
 #include "PatientClass.h"
 
 PatientClass::PatientClass(const QString& name, const QString& surname, int age, const QString& pesel, const QString& treatmentCost, bool isInsured, const QString& treatmentStatus)
