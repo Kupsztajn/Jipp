@@ -7,16 +7,18 @@ int main(int argc, char* argv[])
     QApplication a(argc, argv);
 
     a.setStyleSheet(
-        "QLabel { color: red; }"
-        "QLineEdit { color: red; }"
-        "QCheckBox { color: red; }"
-        "QComboBox { color: red; }"
-        "QPushButton { color: red; }"
-    );
+        "QLabel { color: white; }"
+        "QLineEdit { color: white; }"
+        "QCheckBox { color: white; }"
+        "QComboBox { color: black; }"
+        "QPushButton { color: white; }"
+        "QHeaderView { color: white; }"
+        "QComboBox QAbstractItemView { color: white; }"
+        );
 
     // Ustawienie palety kolorów dla aplikacji
     QPalette palette = a.palette();
-    palette.setColor(QPalette::WindowText, Qt::red);
+    palette.setColor(QPalette::WindowText, Qt::white);
     a.setPalette(palette);
 
     Login login;
