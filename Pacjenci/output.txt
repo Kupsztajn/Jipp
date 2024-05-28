@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 asdf,dasd,asdf,asdfasd,12345678901,Tak,W trakcie leczenia
 ff,ff,ff,345678,f,Tak,Wyleczony
 ff,ff,ff,12354,f,Tak,Wyleczony
+=======
+Jakub,Nawrocki,18,04310805511,1255,Tak,W trakcie leczenia
+Jakub,Nawrocki,18,04310805511,1255,Tak,W trakcie leczenia
+Jan,Kowalski,18,04310805511,1500,Tak,W trakcie leczenia
+Jakub,Nawrocki,20,04310805511,0,Tak,Niepowodzenie
+>>>>>>> 422dced1ebfda5741c2d866484bda5031d2bfbbe
