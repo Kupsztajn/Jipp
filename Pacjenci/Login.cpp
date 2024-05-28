@@ -18,7 +18,7 @@ void Login::OnPushButtonLoginClicked()
     QString password = ui.lineEditPassword->text();
 
     if (username == "admin" && password == "admin") {
-        accept(); // Akceptacja logowania
+        accept();
     }
     else {
 

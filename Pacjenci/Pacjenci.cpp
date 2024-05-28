@@ -6,45 +6,6 @@
 #include <QtPatientInput.h>
 #include <PatientClass.h>
 
-/*
-Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
-    ui.setupUi(this);
-    setWindowIcon(QIcon("plus.ico"));
-
-    QWidget* centralWidget = new QWidget(this);
-    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
-
-    ui.patientTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    mainLayout->addWidget(ui.patientTable);
-
-    mainLayout->addStretch(1);
-
-    QHBoxLayout* buttonLayout = new QHBoxLayout;
-
-    QSizePolicy buttonPolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-    ui.ButtonDelete->setSizePolicy(buttonPolicy);
-    ui.ButtonAdd->setSizePolicy(buttonPolicy);
-    ui.ReadDataButton->setSizePolicy(buttonPolicy);
-    ui.SendDataButton->setSizePolicy(buttonPolicy);
-
-    buttonLayout->addWidget(ui.ButtonDelete);
-    buttonLayout->addWidget(ui.ButtonAdd);
-    buttonLayout->addWidget(ui.ReadDataButton);
-    buttonLayout->addWidget(ui.SendDataButton);
-
-    mainLayout->addLayout(buttonLayout);
-
-
-    mainLayout->addStretch(1);
-
-    setCentralWidget(centralWidget);
-
-    QHeaderView* header = ui.patientTable->horizontalHeader();
-    header->setSectionResizeMode(QHeaderView::Stretch);
-
-}
-*/
-
 Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
     ui.setupUi(this);
     setWindowIcon(QIcon("plus.ico"));

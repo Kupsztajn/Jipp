@@ -16,7 +16,6 @@ int main(int argc, char* argv[])
         "QComboBox QAbstractItemView { color: white; }"
         );
 
-    // Ustawienie palety kolorów dla aplikacji
     QPalette palette = a.palette();
     palette.setColor(QPalette::WindowText, Qt::white);
     a.setPalette(palette);
