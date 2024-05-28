@@ -33,5 +33,5 @@ void Login::OnPushButtonLoginClicked()
 
 void Login::OnPushButtonLogin2Clicked()
 {
-    reject(); // Anulowanie logowania
+    reject();
 }
