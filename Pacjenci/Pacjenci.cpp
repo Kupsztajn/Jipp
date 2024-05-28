@@ -5,46 +5,8 @@
 #include <QTextStream>
 #include <QtPatientInput.h>
 #include <PatientClass.h>
+
 /*
-Pacjenci::Pacjenci(QWidget *parent)
-    : QMainWindow(parent)
-{
-    ui.setupUi(this);
-    setWindowIcon(QIcon("plus.ico"));
-    //ReadData_ButtonClicked();
-    //ui.patientTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-}
-*/
-/*
-Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
-    ui.setupUi(this);
-    setWindowIcon(QIcon("plus.ico"));
-
-    // Stwórz centralny widget, który bêdzie trzyma³ layout
-    QWidget* centralWidget = new QWidget(this);
-    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
-
-    // Dodaj patientTable do mainLayout
-    mainLayout->addWidget(ui.patientTable);
-
-    // Ustaw centralWidget w QMainWindow
-    setCentralWidget(centralWidget);
-
-    // Ustawienie polityki rozmiaru dla tabeli, aby elastycznie skalowa³a siê wraz z oknem
-    ui.patientTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    QHBoxLayout* buttonLayout = new QHBoxLayout;
-    //buttonLayout->addWidget(ui.patientTable);
-    buttonLayout->addWidget(ui.ButtonDelete);
-    buttonLayout->addWidget(ui.ButtonAdd);
-    buttonLayout->addWidget(ui.ReadDataButton);
-    buttonLayout->addWidget(ui.SendDataButton);
-    mainLayout->addLayout(buttonLayout);
-}
-*/
-
-#include "Pacjenci.h"
-
 Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
     ui.setupUi(this);
     setWindowIcon(QIcon("plus.ico"));
@@ -80,6 +42,37 @@ Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
     QHeaderView* header = ui.patientTable->horizontalHeader();
     header->setSectionResizeMode(QHeaderView::Stretch);
 
+}
+*/
+
+Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
+    ui.setupUi(this);
+    setWindowIcon(QIcon("plus.ico"));
+
+    QWidget* centralWidget = new QWidget(this);
+    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
+
+    ui.patientTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    mainLayout->addWidget(ui.patientTable);
+
+    QHBoxLayout* buttonLayout = new QHBoxLayout;
+    QSizePolicy buttonPolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    ui.ButtonDelete->setSizePolicy(buttonPolicy);
+    ui.ButtonAdd->setSizePolicy(buttonPolicy);
+    ui.ReadDataButton->setSizePolicy(buttonPolicy);
+    ui.SendDataButton->setSizePolicy(buttonPolicy);
+
+    buttonLayout->addWidget(ui.ButtonDelete);
+    buttonLayout->addWidget(ui.ButtonAdd);
+    buttonLayout->addWidget(ui.ReadDataButton);
+    buttonLayout->addWidget(ui.SendDataButton);
+
+    mainLayout->addLayout(buttonLayout);
+
+    setCentralWidget(centralWidget);
+
+    QHeaderView* header = ui.patientTable->horizontalHeader();
+    header->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 

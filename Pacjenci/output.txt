@@ -1,5 +1,4 @@
 Jakub,Nawrocki,18,04310805511,1255,Tak,W trakcie leczenia
-hj,,,,,Nie,Wyleczony
 Jakub,Nawrocki,18,04310805511,1255,Tak,W trakcie leczenia
 Jan,Kowalski,18,04310805511,1500,Tak,W trakcie leczenia
-Jakub,Nawr,123,sd,sdf,Tak,Niepowodzenie
+Jakub,Nawrocki,20,04310805511,0,Tak,Niepowodzenie
