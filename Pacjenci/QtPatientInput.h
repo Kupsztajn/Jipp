@@ -35,4 +35,4 @@ private:
     QPushButton* cancelButton;
 };
 
-#endif // QTPATIENTINPUT_H
+#endif

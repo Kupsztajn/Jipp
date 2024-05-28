@@ -20,14 +20,13 @@ private:
     QVector<PatientClass> patients;
 
     private slots:
-        void DodajPacjentaButton_clicked();
-        void UsunPacjentaButton_clicked();
-        void WidgetList_rowChanged(int CurrentRow);
-        void item_changed();
-        void saveToFile_ButtonClicked();
-        void saveItemsToFile(QTableWidget* listWidget, const QString& fileName); // do usuniecia
-        void ReadData_ButtonClicked();
-        void addPatient(const PatientClass& newPatient);
-        void removePatient(int index);
-        void updateTableWidget();
+        void AddPatientButtonClicked();
+        void DeletePatientButtonClicked();
+        void ItemChanged();
+        void SaveToFileButtonClicked();
+        void SaveItemsToFile(QTableWidget* listWidget, const QString& fileName); // do usuniecia
+        void ReadDataButtonClicked();
+        void AddPatient(const PatientClass& newPatient);
+        void RemovePatient(int index);
+        void UpdateTableWidget();
 };

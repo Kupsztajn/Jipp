@@ -12,7 +12,7 @@ Login::Login(QWidget* parent)
 Login::~Login()
 {}
 
-void Login::on_pushButtonLogin_clicked()
+void Login::OnPushButtonLoginClicked()
 {
     QString username = ui.lineEditUsername->text();
     QString password = ui.lineEditPassword->text();
@@ -31,7 +31,7 @@ void Login::on_pushButtonLogin_clicked()
     }
 }
 
-void Login::on_pushButtonLogin2_clicked()
+void Login::OnPushButtonLogin2Clicked()
 {
-    reject(); // Anulowanie logowania
+    reject();
 }
