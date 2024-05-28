@@ -23,7 +23,7 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="Button_Dodaj">
+   <widget class="QPushButton" name="ButtonAdd">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -43,7 +43,7 @@ color: white;
      <string>Dodaj pacjenta</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Button_Usun">
+   <widget class="QPushButton" name="ButtonDelete">
     <property name="geometry">
      <rect>
       <x>790</x>
@@ -176,18 +176,18 @@ border-image: none;</string>
  </resources>
  <connections>
   <connection>
-   <sender>Button_Usun</sender>
+   <sender>ButtonDelete</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
-   <slot>UsunPacjentaButton_clicked()</slot>
+   <slot>DeletePatientButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>550</x>
-     <y>448</y>
+     <x>790</x>
+     <y>340</y>
     </hint>
     <hint type="destinationlabel">
-     <x>529</x>
-     <y>563</y>
+     <x>828</x>
+     <y>545</y>
     </hint>
    </hints>
   </connection>
@@ -195,7 +195,7 @@ border-image: none;</string>
    <sender>patientTable</sender>
    <signal>cellChanged(int,int)</signal>
    <receiver>PacjenciClass</receiver>
-   <slot>item_changed()</slot>
+   <slot>ItemChanged()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>475</x>
@@ -211,7 +211,7 @@ border-image: none;</string>
    <sender>SendDataButton</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
-   <slot>saveToFile_ButtonClicked()</slot>
+   <slot>SaveToFileButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>112</x>
@@ -227,7 +227,7 @@ border-image: none;</string>
    <sender>ReadDataButton</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
-   <slot>ReadData_ButtonClicked()</slot>
+   <slot>ReadDataButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>100</x>
@@ -240,14 +240,14 @@ border-image: none;</string>
    </hints>
   </connection>
   <connection>
-   <sender>Button_Dodaj</sender>
+   <sender>ButtonAdd</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
-   <slot>DodajPacjentaButton_clicked()</slot>
+   <slot>AddPatientButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>91</x>
-     <y>98</y>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
      <x>93</x>
@@ -257,11 +257,11 @@ border-image: none;</string>
   </connection>
  </connections>
  <slots>
-  <slot>DodajPacjentaButton_clicked()</slot>
-  <slot>UsunPacjentaButton_clicked()</slot>
+  <slot>AddPatientButtonClicked()</slot>
+  <slot>DeletePatientButtonClicked()</slot>
   <slot>WidgetList_rowchanged()</slot>
-  <slot>item_changed()</slot>
-  <slot>saveToFile_ButtonClicked()</slot>
-  <slot>ReadData_ButtonClicked()</slot>
+  <slot>ItemChanged()</slot>
+  <slot>SaveToFileButtonClicked()</slot>
+  <slot>ReadDataButtonClicked()</slot>
  </slots>
 </ui>

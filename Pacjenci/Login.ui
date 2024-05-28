@@ -151,5 +151,42 @@ color: none;</string>
  <resources>
   <include location="Pacjenci.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButtonLogin</sender>
+   <signal>clicked()</signal>
+   <receiver>LoginClass</receiver>
+   <slot>OnPushButtonLoginClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>163</x>
+     <y>327</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>88</x>
+     <y>350</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonLogin2</sender>
+   <signal>clicked()</signal>
+   <receiver>LoginClass</receiver>
+   <slot>OnPushButtonLogin2Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>447</x>
+     <y>377</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnPushButtonLoginClicked()</slot>
+  <slot>OnPushButtonLogin2Clicked()</slot>
+ </slots>
 </ui>
