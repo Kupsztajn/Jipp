@@ -34,7 +34,10 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-image: none;
-background-color: rgb(255, 255, 255);</string>
+background-color: rgb(255, 255, 255);
+color: white;
+
+</string>
     </property>
     <property name="text">
      <string>Dodaj pacjenta</string>
@@ -51,7 +54,9 @@ background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-image: none;
-background-color: rgb(255, 255, 255);</string>
+background-color: rgb(255, 255, 255);
+color: white;
+</string>
     </property>
     <property name="text">
      <string>Usun pacjenta</string>
@@ -68,7 +73,9 @@ background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-image: none;
-background-color: rgb(255, 255, 255);</string>
+background-color: rgb(255, 255, 255);
+color: white;
+</string>
     </property>
     <property name="text">
      <string>Wyślij dane</string>
@@ -85,8 +92,8 @@ background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-image: none;
-background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
+color: white;
+</string>
     </property>
     <column>
      <property name="text">
@@ -140,7 +147,9 @@ color: rgb(0, 0, 0);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-image: none;
-background-color: rgb(255, 255, 255);</string>
+background-color: rgb(255, 255, 255);
+color: white;
+</string>
     </property>
     <property name="text">
      <string>Wczytaj dane</string>
