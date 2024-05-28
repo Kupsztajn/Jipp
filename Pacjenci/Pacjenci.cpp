@@ -282,10 +282,12 @@ void Pacjenci::item_changed() {
         QMessageBox::information(this, "Komunikat", "Edytowano pacjenta");
 
     }
+    /*
     else {
         // Obs³uga b³êdu - wiersz poza zakresem
         QMessageBox::warning(this, "B\u0142\u0105d", "Niepoprawne dane pacjenta.");
     }
+    */
 }
 
 
