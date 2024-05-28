@@ -81,7 +81,7 @@ color: rgb(0, 0, 0);</string>
      <string>Podaj hasło</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_username">
+   <widget class="QLineEdit" name="lineEditUsername">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -95,7 +95,7 @@ color: rgb(0, 0, 0);</string>
 color: none;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_password">
+   <widget class="QLineEdit" name="lineEditPassword">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -109,7 +109,7 @@ color: none;</string>
 color: none;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_login">
+   <widget class="QPushButton" name="pushButtonLogin">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -127,7 +127,7 @@ color: none;</string>
      <string>zaloguj</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_login_2">
+   <widget class="QPushButton" name="pushButtonLogin2">
     <property name="geometry">
      <rect>
       <x>200</x>

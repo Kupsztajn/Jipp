@@ -6,25 +6,32 @@ Login::Login(QWidget* parent)
 {
     ui.setupUi(this);
     setWindowIcon(QIcon("plus.ico"));
+    ui.lineEditPassword->setEchoMode(QLineEdit::Password);
 }
 
 Login::~Login()
 {}
 
-void Login::on_pushButton_login_clicked()
+void Login::on_pushButtonLogin_clicked()
 {
-    QString username = ui.lineEdit_username->text();
-    QString password = ui.lineEdit_password->text();
+    QString username = ui.lineEditUsername->text();
+    QString password = ui.lineEditPassword->text();
 
     if (username == "admin" && password == "admin") {
         accept(); // Akceptacja logowania
     }
     else {
-        QMessageBox::warning(this, "Logowanie nie powiodlo sie", "Zly login lub haslo");
+
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Logowanie nie powiodlo si\u0119");
+        msgBox.setText("Z\u0142y login lub has\u0142o");
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setStyleSheet("QMessageBox { background-image: url(:/Pacjenci/tlo.png); }");
+        msgBox.exec();
     }
 }
 
-void Login::on_pushButton_login_2_clicked()
+void Login::on_pushButtonLogin2_clicked()
 {
     reject(); // Anulowanie logowania
 }

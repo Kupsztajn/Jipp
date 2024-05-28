@@ -12,8 +12,8 @@ public:
     ~Login();
 
 private slots:
-    void on_pushButton_login_clicked();
-    void on_pushButton_login_2_clicked();
+    void on_pushButtonLogin_clicked();
+    void on_pushButtonLogin2_clicked();
 
 private:
     Ui::LoginClass ui;

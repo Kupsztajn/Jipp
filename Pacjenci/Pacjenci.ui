@@ -81,7 +81,7 @@ color: white;
      <string>Wyślij dane</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tabela_pacjentow">
+   <widget class="QTableWidget" name="patientTable">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -91,9 +91,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: none;
-color: white;
-</string>
+     <string notr="true"/>
     </property>
     <column>
      <property name="text">
@@ -178,22 +176,6 @@ border-image: none;</string>
  </resources>
  <connections>
   <connection>
-   <sender>Button_Dodaj</sender>
-   <signal>clicked()</signal>
-   <receiver>PacjenciClass</receiver>
-   <slot>DodajPacjentaButton_clicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>91</x>
-     <y>98</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>93</x>
-     <y>297</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>Button_Usun</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
@@ -210,7 +192,7 @@ border-image: none;</string>
    </hints>
   </connection>
   <connection>
-   <sender>tabela_pacjentow</sender>
+   <sender>patientTable</sender>
    <signal>cellChanged(int,int)</signal>
    <receiver>PacjenciClass</receiver>
    <slot>item_changed()</slot>
@@ -254,6 +236,22 @@ border-image: none;</string>
     <hint type="destinationlabel">
      <x>453</x>
      <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button_Dodaj</sender>
+   <signal>clicked()</signal>
+   <receiver>PacjenciClass</receiver>
+   <slot>DodajPacjentaButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>93</x>
+     <y>297</y>
     </hint>
    </hints>
   </connection>

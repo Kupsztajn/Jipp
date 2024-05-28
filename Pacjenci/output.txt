@@ -1,4 +1,2 @@
-asdas,asdasd,asdasd,asd,123412,Tak,W trakcie leczenia
-asdasd,asdasd,asdasd,asdasd,asdasd,Tak,Niepowodzenie
-asdas,asdasd,asdasd,asd,123412,Tak,W trakcie leczenia
-asdasd,asdasd,asdasd,asdasd,asdasd,Tak,Niepowodzenie
+ff,ff,ff,05220504538,f,Tak,Wyleczony
+ff,ff,ff,05220504538,f,Tak,Wyleczony
