@@ -5,6 +5,7 @@ Login::Login(QWidget* parent)
     : QDialog(parent)
 {
     ui.setupUi(this);
+    setWindowIcon(QIcon("plus.ico"));
 }
 
 Login::~Login()

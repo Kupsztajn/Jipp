@@ -8,9 +8,11 @@
 
 Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
+
 {
     ui.setupUi(this);
     setWindowIcon(QIcon("plus.ico"));
+  
     //ReadData_ButtonClicked();
     //ui.tabela_pacjentow->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -74,6 +76,7 @@ void Pacjenci::DodajPacjentaButton_clicked()
 {
     isAddingNewPatient = true;
 
+
     QtPatientInput dialog(this);
     if (dialog.exec() == QDialog::Accepted) {
 
@@ -122,7 +125,11 @@ void Pacjenci::DodajPacjentaButton_clicked()
     ui.lineEdit->clear();
     */
      // Dodawanie do tablewidget
+    
+   
+
     QString str = dialog.getName();
+
     if (str.isEmpty()) {
         QMessageBox::warning(this, "B\u0142\u0105d", "Nie wprowadzono imienia pacjenta lub reszty danych!");
         return;
