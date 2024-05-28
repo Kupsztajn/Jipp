@@ -5,22 +5,16 @@
 #include <QTextStream>
 #include <QtPatientInput.h>
 #include <PatientClass.h>
-
+/*
 Pacjenci::Pacjenci(QWidget *parent)
     : QMainWindow(parent)
-
 {
     ui.setupUi(this);
     setWindowIcon(QIcon("plus.ico"));
-  
-   
-
     //ReadData_ButtonClicked();
     //ui.patientTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-
 }
-
+*/
 /*
 Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
     ui.setupUi(this);
@@ -40,13 +34,62 @@ Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
     ui.patientTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QHBoxLayout* buttonLayout = new QHBoxLayout;
-    buttonLayout->addWidget(ui.deleteButton);
-    buttonLayout->addWidget(ui.addButton);
+    //buttonLayout->addWidget(ui.patientTable);
+    buttonLayout->addWidget(ui.ButtonDelete);
+    buttonLayout->addWidget(ui.ButtonAdd);
     buttonLayout->addWidget(ui.ReadDataButton);
     buttonLayout->addWidget(ui.SendDataButton);
     mainLayout->addLayout(buttonLayout);
 }
 */
+
+#include "Pacjenci.h"
+
+Pacjenci::Pacjenci(QWidget* parent) : QMainWindow(parent) {
+    ui.setupUi(this);
+    setWindowIcon(QIcon("plus.ico"));
+
+    // Stworzenie centralnego widgetu, który bêdzie trzyma³ g³ówny uk³ad (layout)
+    QWidget* centralWidget = new QWidget(this);
+    QVBoxLayout* mainLayout = new QVBoxLayout(centralWidget);
+
+    // Dodanie patientTable do g³ównego uk³adu i ustawienie polityki rozmiaru
+    ui.patientTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    mainLayout->addWidget(ui.patientTable);
+
+    // Dodanie elastycznoœci (stretch) przed przyciskami, aby umiejscowiæ przyciski w centrum
+    mainLayout->addStretch(1);
+
+    // Stworzenie poziomego uk³adu dla przycisków
+    QHBoxLayout* buttonLayout = new QHBoxLayout;
+
+    // Ustawienie polityki rozmiaru dla przycisków, aby unikn¹æ ich niew³aœciwego rozci¹gania
+    QSizePolicy buttonPolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+    ui.ButtonDelete->setSizePolicy(buttonPolicy);
+    ui.ButtonAdd->setSizePolicy(buttonPolicy);
+    ui.ReadDataButton->setSizePolicy(buttonPolicy);
+    ui.SendDataButton->setSizePolicy(buttonPolicy);
+
+    // Dodanie przycisków do poziomego uk³adu
+    buttonLayout->addWidget(ui.ButtonDelete);
+    buttonLayout->addWidget(ui.ButtonAdd);
+    buttonLayout->addWidget(ui.ReadDataButton);
+    buttonLayout->addWidget(ui.SendDataButton);
+
+    // Dodanie poziomego uk³adu z przyciskami do g³ównego uk³adu
+    mainLayout->addLayout(buttonLayout);
+
+    // Dodanie elastycznoœci (stretch) po przyciskach, aby przyciski pozosta³y wycentrowane
+    mainLayout->addStretch(1);
+
+    // Ustawienie centralnego widgetu QMainWindow
+    setCentralWidget(centralWidget);
+
+    QHeaderView* header = ui.patientTable->horizontalHeader();
+    header->setSectionResizeMode(QHeaderView::Stretch);
+
+}
+
 
 Pacjenci::~Pacjenci()
 {

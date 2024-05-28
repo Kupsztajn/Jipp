@@ -22,10 +22,14 @@ int main(int argc, char* argv[])
     a.setPalette(palette);
 
     Login login;
-    if (login.exec() == QDialog::Accepted) {
-        Pacjenci w;
-        w.show();
-        return a.exec();
-    }
+    //if (login.exec() == QDialog::Accepted) {
+        //Pacjenci w;
+        //w.show();
+        //return a.exec();
+   // }
+
+    Pacjenci w;
+    w.show();
+    return a.exec();
     return 0;
 }
