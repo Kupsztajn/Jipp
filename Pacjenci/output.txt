@@ -1,2 +1,4 @@
-ff,ff,ff,345678,f,Tak,Wyleczony
-ff,ff,ff,12354,f,Tak,Wyleczony
+a,s,d,f,g,Tak,W trakcie leczenia
+ff,asdasf,ff,345678,f,Tak,Wyleczony
+sadsad,dasfasf,ff,12354,f,Tak,Wyleczony
+asd,f,gh,g,g,Tak,W trakcie leczenia

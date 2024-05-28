@@ -351,7 +351,7 @@ void Pacjenci::ReadData_ButtonClicked()
     isAddingNewPatient = true;
     QFile file("output.txt");  // Nazwa pliku z którego bêd¹ czytane dane
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QMessageBox::warning(this, "B\u0142\u0105d", "Nie mo\u017cna otworzy\u0107 pliku do odczytu.");
+        QMessageBox::warning(this, "B³¹d", "Nie mo¿na otworzyæ pliku do odczytu.");
         return;
     }
 
@@ -360,9 +360,21 @@ void Pacjenci::ReadData_ButtonClicked()
         QString line = in.readLine();
         QStringList fields = line.split(",");  // Rozdziel liniê na poszczególne elementy
 
-        if (fields.size() == ui.patientTable->columnCount()) {  // Upewnij siê, ¿e ka¿da linia ma 5 elementów
+        if (fields.size() == ui.patientTable->columnCount()) {
+            PatientClass newPatient(
+                fields[0].trimmed(), // name
+                fields[1].trimmed(), // surname
+                fields[2].trimmed().toInt(), // age
+                fields[3].trimmed(), // pesel
+                fields[4].trimmed(), // treatmentCost
+                fields[5].trimmed().toLower() == "tak", // insured
+                fields[6].trimmed() // treatmentStatus
+            );
+
+            patients.append(newPatient);  // Dodaj nowego pacjenta do wektora
+
             int newRow = ui.patientTable->rowCount();
-            ui.patientTable->insertRow(newRow);  // Dodaj nowy wiersz
+            ui.patientTable->insertRow(newRow);  // Dodaj nowy wiersz do tabeli
 
             for (int column = 0; column < fields.size(); ++column) {
                 QTableWidgetItem* newItem = new QTableWidgetItem(fields[column].trimmed());
@@ -372,9 +384,10 @@ void Pacjenci::ReadData_ButtonClicked()
     }
 
     file.close();  // Zamknij plik
-    QMessageBox::information(this, "Informacja", "Dane zosta\u0142y wczytane z pliku.");
     isAddingNewPatient = false;
+    QMessageBox::information(this, "Informacja", "Dane zosta³y wczytane z pliku.");
 }
+
 
 void Pacjenci::addPatient(const PatientClass& newPatient) {
     patients.append(newPatient);
