@@ -22,12 +22,11 @@ private:
     private slots:
         void AddPatientButtonClicked();
         void DeletePatientButtonClicked();
-        void WidgetList_rowChanged(int CurrentRow);
         void ItemChanged();
         void SaveToFileButtonClicked();
-        void saveItemsToFile(QTableWidget* listWidget, const QString& fileName); // do usuniecia
+        void SaveItemsToFile(QTableWidget* listWidget, const QString& fileName); // do usuniecia
         void ReadDataButtonClicked();
-        void addPatient(const PatientClass& newPatient);
-        void removePatient(int index);
-        void updateTableWidget();
+        void AddPatient(const PatientClass& newPatient);
+        void RemovePatient(int index);
+        void UpdateTableWidget();
 };

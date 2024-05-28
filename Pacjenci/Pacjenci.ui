@@ -23,7 +23,7 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="Button_Dodaj">
+   <widget class="QPushButton" name="ButtonAdd">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -43,7 +43,7 @@ color: white;
      <string>Dodaj pacjenta</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Button_Usun">
+   <widget class="QPushButton" name="ButtonDelete">
     <property name="geometry">
      <rect>
       <x>790</x>
@@ -176,7 +176,7 @@ border-image: none;</string>
  </resources>
  <connections>
   <connection>
-   <sender>Button_Usun</sender>
+   <sender>ButtonDelete</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
    <slot>DeletePatientButtonClicked()</slot>
@@ -240,7 +240,7 @@ border-image: none;</string>
    </hints>
   </connection>
   <connection>
-   <sender>Button_Dodaj</sender>
+   <sender>ButtonAdd</sender>
    <signal>clicked()</signal>
    <receiver>PacjenciClass</receiver>
    <slot>AddPatientButtonClicked()</slot>

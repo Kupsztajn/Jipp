@@ -1,3 +1,4 @@
+s,d,fg,h,f,Tak,W trakcie leczenia
+s,d,f,g,h,Tak,W trakcie leczenia
 Jakub,Nawrocki,18,04310805511,1255,Tak,W trakcie leczenia
-d,s,fas,1245678901,d,Nie,Wyleczony
 as,d,f,12345678901,d,Tak,W trakcie leczenia

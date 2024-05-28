@@ -235,11 +235,6 @@ void Pacjenci::AddPatientButtonClicked()
     isAddingNewPatient = false;
 }
 
-void Pacjenci::WidgetList_rowChanged(int CurrentRow)
-{
-    mnSelected = CurrentRow;
-}
-
 void Pacjenci::ItemChanged() 
 {
     if (isAddingNewPatient) {
@@ -293,7 +288,7 @@ void Pacjenci::ItemChanged()
 
 void Pacjenci::SaveToFileButtonClicked()
 {
-    saveItemsToFile(ui.patientTable, "output.txt"); // Zapisz elementy do pliku
+    SaveItemsToFile(ui.patientTable, "output.txt"); // Zapisz elementy do pliku
 
     QMessageBox::information(this, "Komunikat", "Pomyslnie skopiowano do pliku");
 
@@ -306,7 +301,7 @@ void Pacjenci::SaveToFileButtonClicked()
 }
 
 
-void Pacjenci::saveItemsToFile(QTableWidget* listWidget, const QString& fileName) {
+void Pacjenci::SaveItemsToFile(QTableWidget* listWidget, const QString& fileName) {
 
       // Nazwa pliku do zapisu
     QFile file(fileName);
@@ -390,19 +385,19 @@ void Pacjenci::ReadDataButtonClicked()
 }
 
 
-void Pacjenci::addPatient(const PatientClass& newPatient) {
+void Pacjenci::AddPatient(const PatientClass& newPatient) {
     patients.append(newPatient);
-    updateTableWidget();
+    UpdateTableWidget();
 }
 
-void Pacjenci::removePatient(int index) {
+void Pacjenci::RemovePatient(int index) {
     if (index >= 0 && index < patients.size()) {
         patients.removeAt(index);
-        updateTableWidget();
+        UpdateTableWidget();
     }
 }
 
-void Pacjenci::updateTableWidget() {
+void Pacjenci::UpdateTableWidget() {
     ui.patientTable->clear();
     for (const auto& patient : patients) {
         int row = ui.patientTable->rowCount();
